@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>Vue 3 Calendar</title>
+</head>
+<body>
+	<div id="app" v-cloak>
+		<h1>Vue 3 Calendar</h1>
+		<section class="flex justyfy-betwen">
+			<h2>{{ currentMonthName }}</h2>
+			<h2>{{ currentYear }}</h2>
+		</section>	
+		<section class="flex">
+			<p class="days" v-for="day in days" :key="day">{{ day }}</p>
+		</section>
+		<section class="flex">
+			<p class="numbers" v-for="num in startDay()" :key="num"></p>
+			<p class="numbers" v-for="num in daysInMonth()" :key="num" :class="currentDateClass(num)">{{ num }}</p>
+		</section>
+		<section class="flex justyfy-betwen">
+			<button @click="prev">Prev</button>
+			<button @click="next">Next</button>
+		</section>
+	</div>
+	<script src="https://unpkg.com/vue@3"></script>
+	<script src="app.js"></script>
+</body>
+</html>
